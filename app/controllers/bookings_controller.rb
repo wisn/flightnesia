@@ -4,6 +4,8 @@ class BookingsController < ApplicationController
   # GET /bookings
   # GET /bookings.json
   def index
+    redirect_if_not_logged_in
+
     @bookings = Booking.all
     @title = 'Daftar Pemesanan Tiket'
   end
@@ -15,6 +17,8 @@ class BookingsController < ApplicationController
 
   # GET /bookings/new
   def new
+    redirect_if_not_logged_in
+
     @booking = Booking.new
   end
 
@@ -41,6 +45,8 @@ class BookingsController < ApplicationController
   # PATCH/PUT /bookings/1
   # PATCH/PUT /bookings/1.json
   def update
+    redirect_if_not_logged_in
+
     respond_to do |format|
       if @booking.update(booking_params)
         format.html { redirect_to @booking, notice: 'Booking was successfully updated.' }
@@ -55,6 +61,8 @@ class BookingsController < ApplicationController
   # DELETE /bookings/1
   # DELETE /bookings/1.json
   def destroy
+    redirect_if_not_logged_in
+
     kode_pesawat = @booking.kode_pesawat
     @booking.destroy
     respond_to do |format|
@@ -100,6 +108,8 @@ class BookingsController < ApplicationController
   end
 
   def confirm
+    redirect_if_not_logged_in
+
     booking_id = (Base64.decode64 params[:booking_id]).to_i
     @booking = Booking.find booking_id
     @booking.konfirmasi = true
@@ -147,5 +157,9 @@ class BookingsController < ApplicationController
 
     def check_book_params
       params.require(:booking).permit(:booking_id)
+    end
+
+    def redirect_if_not_logged_in
+      redirect_to '/admin' if session[:user_data].nil?
     end
 end

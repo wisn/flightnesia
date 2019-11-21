@@ -4,6 +4,8 @@ class PlanesController < ApplicationController
   # GET /planes
   # GET /planes.json
   def index
+    redirect_if_not_logged_in
+
     @planes = Plane.all
     @title = 'Jadwal Pesawat'
   end
@@ -15,18 +17,24 @@ class PlanesController < ApplicationController
 
   # GET /planes/new
   def new
+    redirect_if_not_logged_in
+
     @plane = Plane.new
     @title = 'Tambah Jadwal'
   end
 
   # GET /planes/1/edit
   def edit
+    redirect_if_not_logged_in
+
     @title = 'Edit Jadwal'
   end
 
   # POST /planes
   # POST /planes.json
   def create
+    redirect_if_not_logged_in
+
     @plane = Plane.new(plane_params)
 
     respond_to do |format|
@@ -44,6 +52,8 @@ class PlanesController < ApplicationController
   # PATCH/PUT /planes/1
   # PATCH/PUT /planes/1.json
   def update
+    redirect_if_not_logged_in
+
     respond_to do |format|
       if @plane.update(plane_params)
         # format.html { redirect_to @plane, notice: 'Plane was successfully updated.' }
@@ -59,6 +69,8 @@ class PlanesController < ApplicationController
   # DELETE /planes/1
   # DELETE /planes/1.json
   def destroy
+    redirect_if_not_logged_in
+
     @plane.destroy
     respond_to do |format|
       # format.html { redirect_to planes_url, notice: 'Plane was successfully destroyed.' }
@@ -105,5 +117,9 @@ class PlanesController < ApplicationController
 
     def find_params
       params.require(:plane).permit(:bandara_asal, :bandara_tujuan, :tgl_berangkat)
+    end
+
+    def redirect_if_not_logged_in
+      redirect_to '/admin' if session[:user_data].nil?
     end
 end

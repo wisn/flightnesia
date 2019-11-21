@@ -4,6 +4,8 @@ class ConfirmationsController < ApplicationController
   # GET /confirmations
   # GET /confirmations.json
   def index
+    redirect_if_not_logged_in
+
     @confirmations = Confirmation.all
     @title = 'Daftar Permintaan Konfirmasi'
   end
@@ -11,6 +13,7 @@ class ConfirmationsController < ApplicationController
   # GET /confirmations/1
   # GET /confirmations/1.json
   def show
+    redirect_if_not_logged_in
   end
 
   # GET /confirmations/new
@@ -21,6 +24,7 @@ class ConfirmationsController < ApplicationController
 
   # GET /confirmations/1/edit
   def edit
+    redirect_if_not_logged_in
   end
 
   # POST /confirmations
@@ -44,6 +48,8 @@ class ConfirmationsController < ApplicationController
   # PATCH/PUT /confirmations/1
   # PATCH/PUT /confirmations/1.json
   def update
+    redirect_if_not_logged_in
+
     respond_to do |format|
       if @confirmation.update(confirmation_params)
         format.html { redirect_to @confirmation, notice: 'Confirmation was successfully updated.' }
@@ -58,6 +64,8 @@ class ConfirmationsController < ApplicationController
   # DELETE /confirmations/1
   # DELETE /confirmations/1.json
   def destroy
+    redirect_if_not_logged_in
+\
     @confirmation.destroy
     respond_to do |format|
       format.html { redirect_to confirmations_url, notice: 'Confirmation was successfully destroyed.' }
@@ -74,5 +82,9 @@ class ConfirmationsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def confirmation_params
       params.require(:confirmation).permit(:booking_id, :jumlah_bayar, :pengirim, :nama_bank)
+    end
+
+    def redirect_if_not_logged_in
+      redirect_to '/admin' if session[:user_data].nil?
     end
 end
