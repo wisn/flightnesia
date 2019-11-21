@@ -1,0 +1,50 @@
+<%= render 'partials/user_navbar' %>
+
+<div class="container">
+  <br>
+  <%= render 'partials/admin_navbar' %>
+</div>
+
+<br><br>
+<p id="notice"><%= notice %></p>
+	<div class="container">
+        <table id="keywords" cellspacing="0" cellpadding="0" class="table table-bordered">
+          <thead>
+            <tr>
+              <th><span>Kode Pesawat</span></th>
+              <th><span>Nama Pesawat</span></th>
+              <th><span>Kelas</span></th>
+              <th><span>Jumlah Kursi</span></th>
+              <th><span>Bandara Asal</span></th>
+              <th><span>Bandara Tujuan</span></th>
+              <th><span>Harga</span></th>
+              <th><span>Aksi</span></th>
+            </tr>
+          </thead>
+          <tbody>
+              <% @planes.each do |plane| %>
+            <tr>
+              <td><%= plane.kode_pesawat %></td>
+              <td><%= plane.nama_pesawat %></td>
+              <td><%= plane.kelas %></td>
+              <td><%= plane.jml_kursi %></td>
+              <td><%= plane.bandara_asal %></td>
+              <td><%= plane.bandara_tujuan %></td>
+              <td><%= plane.harga %></td>
+              <td>
+                <button name="hapus">
+                  <%= link_to 'Hapus', plane, method: :delete, data: { confirm: 'Anda yakin ingin menghapus ini?' } %>
+                </button>
+              </td>
+              <td>
+                <button name="edit"><%= link_to 'Edit', edit_plane_path(plane) %></button>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+            <a href="/planes/new"><input type="submit" class="btn btn-primary" value="Tambah Jadwal" name="tambah" /></a>
+    </div>
+    <div class="content_resize">
+      <div class="mainbar"></div>
+    </div>

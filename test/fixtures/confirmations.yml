@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  booking_id: 1
+  jumlah_bayar: MyString
+  pengirim: MyString
+  nama_bank: MyString
+
+two:
+  booking_id: 1
+  jumlah_bayar: MyString
+  pengirim: MyString
+  nama_bank: MyString

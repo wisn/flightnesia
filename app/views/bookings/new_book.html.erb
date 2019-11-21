@@ -1,0 +1,51 @@
+<%= render 'partials/navbar' %>
+
+<div class="container" style="margin: 0 auto">
+		<div class="row">
+			<div class=" col-lg-10" style="margin-top:4%">
+				<div class="h1">Pemesanan</div>
+				<br>
+        <%= form_with scope: 'booking', url: "/bookings/new/#{@plane['kode_pesawat']}", class: 'form-horizontal' do |f| %>
+				<!--<form class="form-horizontal" method="post" action="pesan.php">-->
+					<fieldset>
+						<div class="form-group">
+						 	<label for="disabledSelect">Nama</label>
+							<input id="disabledSelect" class="form-control" type="text" placeholder="Masukkan Nama Anda" name="booking[nama]"></input>
+						</div>
+						<div class="form-group">
+						    <label for="disabledSelect">No KTP</label>
+						    <input id="disabledSelect" class="form-control" type="text" placeholder="Masukkan Nomor KTP Anda" name="booking[no_id]"></input>
+						</div>
+						<div class="form-group">
+						    <label for="disabledSelect">No Telepon</label>
+						    <input id="disabledSelect" class="form-control" type="text" placeholder="Masukkan Nomor Telepon Anda" name="booking[no_telp]"></input>
+						</div>
+						<div class="form-group">
+						  	<label for="disabledSelect">Kode Pesawat</label>
+						  	<input type="text" class="form-control" name="booking[kode_pesawat]" value="<%= @plane['kode_pesawat'] %>">	
+						</div>
+						<div class="form-group">
+						  	<label for="disabledSelect">Nama Pesawat</label>
+						  	<input type="text" class="form-control" name="booking[nama_pesawat]" value="<%= @plane['nama_pesawat'] %>">	
+						</div>
+						<div class="form-group">
+							<label for="disabledselect">Bandara Asal</label>
+							<input type="text" class="form-control" name="booking[bandara_asal]" value="<%= @plane['bandara_asal'] %>">
+						</div>
+						<div class="form-group">
+							<label for="disabledselect">Bandara Tujuan</label>
+							<input type="text" class="form-control" name="booking[bandara_tujuan]" value="<%= @plane['bandara_tujuan'] %>">
+						</div>
+						<div class="form-group">
+							<label for="disabeledselect">Tanggal Pemberangkatan</label>
+							<input id="disabledSelect" class="form-control" type="date" placeholder="Pilih Tanggal" name="booking[tgl_berangkat]" value="<%= @tgl_berangkat %>">
+						</div>
+						<div class="form-group">					    	
+					      	<button type="submit" class="btn btn-default" name="booking[pesan]">Pesan</button>
+					  	</div>
+					</fieldset>
+				<!--</form>-->
+        <% end %>
+			</div>
+		</div>
+	</div>

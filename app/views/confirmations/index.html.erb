@@ -1,0 +1,73 @@
+<%= render 'partials/user_navbar' %>
+
+<br>
+<div class="container">
+  <%= render 'partials/admin_navbar' %>
+  <br>
+  <p id="notice"><%= notice %></p>
+</div>
+
+<br><br>
+	<div class="container">
+        <table id="keywords" cellspacing="0" cellpadding="0" class="table">
+          <thead>
+            <tr>
+              <th><span>Kode Booking</span></th>
+              <th><span>Jumlah Bayar</span></th>
+              <th><span>Pengirim</span></th>
+              <th><span>Nama Bank</span></th>
+            </tr>
+          </thead>
+          <tbody>
+              <% @confirmations.each do |c| %>
+            <tr>
+              <td><%= Base64.encode64 c.booking_id.to_s %></td>
+              <td><%= c.jumlah_bayar %></td>
+              <td><%= c.pengirim %></td>
+              <td><%= c.nama_bank %></td>
+              <td>
+                <button>
+                  <%= link_to 'Konfirmasi', "/bookings/confirm/#{Base64.encode64 c.booking_id.to_s}", method: :post, data: { confirm: 'Konfirmasi pembayaran untuk pemesanan ini?' } %>
+                </button>
+                <!--<button name="konfirm"><a href="konfirmadmin.php?=<?php echo $data['id'];?>">Konfirmasi</a></button>-->
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+    </div>
+    <div class="content_resize">
+      <div class="mainbar"></div>
+    </div>
+
+<!--<h1>Confirmations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Booking</th>
+      <th>Jumlah bayar</th>
+      <th>Pengirim</th>
+      <th>Nama bank</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @confirmations.each do |confirmation| %>
+      <tr>
+        <td><%= confirmation.booking_id %></td>
+        <td><%= confirmation.jumlah_bayar %></td>
+        <td><%= confirmation.pengirim %></td>
+        <td><%= confirmation.nama_bank %></td>
+        <td><%= link_to 'Show', confirmation %></td>
+        <td><%= link_to 'Edit', edit_confirmation_path(confirmation) %></td>
+        <td><%= link_to 'Destroy', confirmation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Confirmation', new_confirmation_path %>-->

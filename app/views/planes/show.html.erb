@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Kode pesawat:</strong>
+  <%= @plane.kode_pesawat %>
+</p>
+
+<p>
+  <strong>Nama pesawat:</strong>
+  <%= @plane.nama_pesawat %>
+</p>
+
+<p>
+  <strong>Kelas:</strong>
+  <%= @plane.kelas %>
+</p>
+
+<p>
+  <strong>Bandara asal:</strong>
+  <%= @plane.bandara_asal %>
+</p>
+
+<p>
+  <strong>Bandara tujuan:</strong>
+  <%= @plane.bandara_tujuan %>
+</p>
+
+<p>
+  <strong>Jam keberangkatan:</strong>
+  <%= @plane.jam_keberangkatan %>
+</p>
+
+<p>
+  <strong>Jam kedatangan:</strong>
+  <%= @plane.jam_kedatangan %>
+</p>
+
+<p>
+  <strong>Harga:</strong>
+  <%= @plane.harga %>
+</p>
+
+<p>
+  <strong>Jml kursi:</strong>
+  <%= @plane.jml_kursi %>
+</p>
+
+<%= link_to 'Edit', edit_plane_path(@plane) %> |
+<%= link_to 'Back', planes_path %>

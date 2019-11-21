@@ -1,0 +1,37 @@
+<%= form_with(model: confirmation, local: true) do |form| %>
+  <% if confirmation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(confirmation.errors.count, "error") %> prohibited this confirmation from being saved:</h2>
+
+      <ul>
+        <% confirmation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :booking_id %>
+    <%= form.number_field :booking_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :jumlah_bayar %>
+    <%= form.text_field :jumlah_bayar %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pengirim %>
+    <%= form.text_field :pengirim %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nama_bank %>
+    <%= form.text_field :nama_bank %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

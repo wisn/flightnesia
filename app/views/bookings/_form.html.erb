@@ -1,0 +1,62 @@
+<%= form_with(model: booking, local: true) do |form| %>
+  <% if booking.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+
+      <ul>
+        <% booking.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :kode_pesawat %>
+    <%= form.text_field :kode_pesawat %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nama %>
+    <%= form.text_field :nama %>
+  </div>
+
+  <div class="field">
+    <%= form.label :no_id %>
+    <%= form.text_field :no_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :no_telp %>
+    <%= form.text_field :no_telp %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nama_pesawat %>
+    <%= form.text_field :nama_pesawat %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bandara_asal %>
+    <%= form.text_field :bandara_asal %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bandara_tujuan %>
+    <%= form.text_field :bandara_tujuan %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tgl_berangkat %>
+    <%= form.date_select :tgl_berangkat %>
+  </div>
+
+  <div class="field">
+    <%= form.label :konfirmasi %>
+    <%= form.check_box :konfirmasi %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

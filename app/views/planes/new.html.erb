@@ -1,0 +1,97 @@
+<%= render 'partials/user_navbar' %>
+
+<div class="container">
+  <%= render 'partials/admin_navbar' %>
+</div>
+
+<div class="container">
+        <div class="row">
+            <div class="col-lg-12" style="margin-left:10%">
+                <br><br>
+                  <!--<form method="post" action="">-->
+                  <%= form_with model: @plane, local: true do |f| %>
+              <fieldset>
+                            
+                <div class="form-group">
+                  <label for="disabledSelect">Kode Pesawat</label>
+                  <input id="kode" class="form-control" type="text" name="plane[kode_pesawat]" placeholder="Kode Pesawat"></input>
+                </div>
+                <div class="form-group">
+                    <label for="disabledSelect">Nama Pesawat</label>
+                    <select id="kereta" class="form-control" name="plane[nama_pesawat]" onchange="myFunction()">
+                      <option selected="selected">Pilih Pesawat</option>
+                      <option value="Garuda Indonesia">Garuda Indonesia</option>
+                      <option value="Citilink">Citilink</option>
+                      <option value="Lion Air">Lion Air</option>
+                      <option value="Batik Air">Batik Air</option>
+                    </select>
+                </div>
+                 <div class="form-group">
+                    <label for="disabledSelect">Kelas</label>
+                    <select id="kelas" class="form-control" name="plane[kelas]" onchange="myFunction()">
+                      <option selected="selected">Pilih Kelas</option>
+                      <option value="Executive">Executive</option>
+                      <option value="Bisnis">Bisnis</option>
+                      <option value="Ekonomi">Ekonomi</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                  <label for="disabledSelect">Jumlah Kursi</label>
+                  <input id="jumlah" class="form-control" type="text" name="plane[jml_kursi]" placeholder="Jumlah Kursi"></input>
+                </div>
+                <div class="form-group">
+                  <label for="disabledSelect">Harga Tiket</label>
+                  <input id="harga" class="form-control" type="text" name="plane[harga]" placeholder="Harga Tiket"></input>
+                </div>
+                <div class="form-group">
+                    <label for="disabledSelect">Bandara Pemberangkatan</label>
+                    <select id="disabledSelect" class="form-control" name="plane[bandara_asal]">
+                      <option selected="selected">Pilih Bandara</option>
+                      <option value="Soekarno-Hatta">Soekarno-Hatta</option>
+                      <option value="Kertajati">Kertajati</option>
+                      <option value="Denpasar">Denpasar</option>
+                      <option value="Kualanamu">Kualanamu</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="disabledSelect">Bandara Tujuan</label>
+                    <select id="disabledSelect" class="form-control" name="plane[bandara_tujuan]">
+                      <option selected="selected">Pilih Bandara</option>
+                      <option value="Soekarno-Hatta">Soekarno-Hatta</option>
+                      <option value="Kertajati">Kertajati</option>
+                      <option value="Denpasar">Denpasar</option>
+                      <option value="Kualanamu">Kualanamu</option>
+                    </select>
+                </div>
+
+                <label>Jam Keberangkatan</label>
+                <input class="form-control input "  type="text" name="plane[jam_keberangkatan]" placeholder="Jam Keberangkatan">
+                <br>
+                <label>Jam Kedatangan</label>
+                <input class="form-control input "  type="text" name="plane[jam_kedatangan]" placeholder="Jam Kedatangan">
+
+              <br>
+                            <br>
+                <button type="submit" name="tambah" value="Tambah" class="btn btn-primary">TAMBAH</button>
+                <br><br><br>
+              </fieldset>
+          <!--</form> -->
+          <% end %>
+            </div>
+        </div>
+    </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  
+      <div class="clr"></div>
+    </div>
+  </div>
+</div>
+
+<!--<h1>New Plane</h1>
+
+<%= render 'form', plane: @plane %>
+
+<%= link_to 'Back', planes_path %>
+-->

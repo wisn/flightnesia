@@ -1,0 +1,56 @@
+<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+
+<link rel="stylesheet" href="/css/animate.css">
+<!-- Custom Stylesheet -->
+<link rel="stylesheet" href="/css/style.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+<%= flash[:error] || '' %>
+
+<div class="container" style="margin: 0 auto">
+  <div class="top">
+    <h1 id="title"><span id="logo">Admin<span>Flightnesia</span></span></h1>
+  </div>
+  <div class="login-box animated fadeInUp">
+    <div class="box-header">
+      <h2>Log In</h2>
+    </div>
+    <!--<form method="POST" action="">-->
+    <%= form_with scope: 'user', url: '/admin' do |f| %>
+    <label for="username">Username</label>
+    <br/>
+    <!--<input type="text" id="username" name="username">-->
+    <%= f.text_field :username %>
+    <br/>
+    <label for="password">Password</label>
+    <br/>
+    <!--<input type="password" id="password" name="password">-->
+    <%= f.password_field :password %>
+    <br/>
+    <button type="submit">Sign In</button>
+    <br/>
+    <% end %>
+    <!-- <a href="register.php"><p class="small">register untuk tambah amin</p></a> -->
+    <!--</form>-->
+  </div>
+</div>
+
+<script>
+	$(document).ready(function () {
+    	$('#logo').addClass('animated fadeInDown');
+    	$("input:text:visible:first").focus();
+	});
+	$('#username').focus(function() {
+		$('label[for="username"]').addClass('selected');
+	});
+	$('#username').blur(function() {
+		$('label[for="username"]').removeClass('selected');
+	});
+	$('#password').focus(function() {
+		$('label[for="password"]').addClass('selected');
+	});
+	$('#password').blur(function() {
+		$('label[for="password"]').removeClass('selected');
+	});
+</script>

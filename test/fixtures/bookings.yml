@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  kode_pesawat: MyString
+  nama: MyString
+  no_id: MyString
+  no_telp: MyString
+  nama_pesawat: MyString
+  bandara_asal: MyString
+  bandara_tujuan: MyString
+  tgl_berangkat: 2019-11-21
+  konfirmasi: false
+
+two:
+  kode_pesawat: MyString
+  nama: MyString
+  no_id: MyString
+  no_telp: MyString
+  nama_pesawat: MyString
+  bandara_asal: MyString
+  bandara_tujuan: MyString
+  tgl_berangkat: 2019-11-21
+  konfirmasi: false

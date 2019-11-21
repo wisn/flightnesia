@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Booking:</strong>
+  <%= @confirmation.booking_id %>
+</p>
+
+<p>
+  <strong>Jumlah bayar:</strong>
+  <%= @confirmation.jumlah_bayar %>
+</p>
+
+<p>
+  <strong>Pengirim:</strong>
+  <%= @confirmation.pengirim %>
+</p>
+
+<p>
+  <strong>Nama bank:</strong>
+  <%= @confirmation.nama_bank %>
+</p>
+
+<%= link_to 'Edit', edit_confirmation_path(@confirmation) %> |
+<%= link_to 'Back', confirmations_path %>

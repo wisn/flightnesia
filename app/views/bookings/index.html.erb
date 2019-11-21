@@ -1,0 +1,142 @@
+<%= render 'partials/user_navbar' %>
+
+<br>
+<div class="container">
+  <%= render 'partials/admin_navbar' %>
+  <br>
+  <p id="notice"><%= notice %></p>
+</div>
+
+<br>
+           <div class="container">
+               <!--<div class="panel panel-default">
+                  <div class="panel-heading">Filter</div>
+                  <div class="panel-body">
+                    <form class="form-inline" action="" method="post">
+                        <div class="form-group">
+                            <label>Tanggal Pemberangkatan</label>
+                            <input type="date" class="form-control" name="tglberangkat">
+                          </div>
+                          <div class="form-group">
+                            <label>Konfirmasi</label>
+                            <select class="form-control" name="konfirmasi">
+                                <option value="sudah">Sudah</option>
+                                <option value="belum">Belum</option>
+                            </select>
+                          </div>
+
+                          <button type="submit" name="kirim" class="btn btn-default">Kirim</button>
+                    </form>
+                  </div>
+                </div>-->
+               <table class="table table-bordered">
+                   <thead>
+                       <th>Booking Id</th>
+                       <th>Kode Pesawat</th>
+                       <th>Nama</th>
+                       <th>No KTP</th>
+                       <th>No Telepon</th>
+                       <th>Nama Pesawat</th>
+                       <th>Bandara Asal</th>
+                       <th>Bandara Tujuan</th>
+                       <th>Tanggal Berangkat</th>
+                       <th>Konfirmasi</th>
+                       <th>Aksi</th>
+                   </thead>
+                   <tbody>
+                    <% @bookings.each do |b| %>
+                      <tr>
+                        <td><%= Base64.encode64 b.id.to_s %></td>
+                        <td><%= b.kode_pesawat %></td>
+                        <td><%= b.nama %></td>
+                        <td><%= b.no_id %></td>
+                        <td><%= b.no_telp %></td>
+                        <td><%= b.nama_pesawat %></td>
+                        <td><%= b.bandara_asal %></td>
+                        <td><%= b.bandara_tujuan %></td>
+                        <td><%= b.tgl_berangkat %></td>
+                        <td>
+                          <% if b.konfirmasi %>
+                            Sudah
+                          <% else %>
+                            Belum
+                            <!--<button>
+                              <%= link_to 'Konfirmasi', "/bookings/confirm/#{Base64.encode64 b.id.to_s}", method: :post, data: { confirm: 'Konfirmasi pembayaran untuk pemesanan ini?' } %>
+                            </button>-->
+                          <% end %>
+                        </td>
+                        <td>
+                          <% if b.konfirmasi %>
+                            <div align="center">-</div>
+                          <% else %>
+                            <button>
+                              <%= link_to 'Batalkan', b, method: :delete, data: { confirm: 'Anda yakin ingin membatalkan pesanan ini?' } %>
+                            </button>
+                          <% end %>
+                        </td>
+                      </tr>
+                    <% end %>
+                       <!--<?php
+                           //Datanya ada
+                           foreach ($data as $key) {
+                               echo '<tr>';
+                               echo '<td>'.$key['Booking_id'].'</td>';
+                               echo '<td>'.$key['kode_kereta'].'</td>';
+                               echo '<td>'.$key['nama'].'</td>';
+                               echo '<td>'.$key['no_id'].'</td>';
+                               echo '<td>'.$key['jenis_id'].'</td>';
+                               echo '<td>'.$key['no_telp'].'</td>';
+                               echo '<td>'.$key['nama_kereta'].'</td>';
+                               echo '<td>'.$key['stasiun_awal'].'</td>';
+                               echo '<td>'.$key['stasiun_tujuan'].'</td>';
+                               echo '<td>'.$key['tgl_berangkat'].'</td>';
+                               echo $key['konfirmasi'] == '0'?'<td>Belum</td>':'<td>Sudah</td>';
+                               echo "<td><button name='hapus'><a href='batal.php?id=" . $key['Booking_id'] ."'>Hapus</a></button></td>";
+                               echo '</tr>';
+                           }
+                       ?>-->
+                   </tbody>
+               </table>
+           </div>
+
+<!--<h1>Bookings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Kode pesawat</th>
+      <th>Nama</th>
+      <th>No</th>
+      <th>No telp</th>
+      <th>Nama pesawat</th>
+      <th>Bandara asal</th>
+      <th>Bandara tujuan</th>
+      <th>Tgl berangkat</th>
+      <th>Konfirmasi</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bookings.each do |booking| %>
+      <tr>
+        <td><%= booking.kode_pesawat %></td>
+        <td><%= booking.nama %></td>
+        <td><%= booking.no_id %></td>
+        <td><%= booking.no_telp %></td>
+        <td><%= booking.nama_pesawat %></td>
+        <td><%= booking.bandara_asal %></td>
+        <td><%= booking.bandara_tujuan %></td>
+        <td><%= booking.tgl_berangkat %></td>
+        <td><%= booking.konfirmasi %></td>
+        <td><%= link_to 'Show', booking %></td>
+        <td><%= link_to 'Edit', edit_booking_path(booking) %></td>
+        <td><%= link_to 'Destroy', booking, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Booking', new_booking_path %>-->

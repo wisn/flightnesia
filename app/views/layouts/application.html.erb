@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Flightnesia</title>
+    <title><%= @title || 'Flightnesia.com' %></title>
+    <link rel="stylesheet" type="text/css" href="/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link href="/ninja-slider.css" rel="stylesheet" type="text/css">
+    <script src="/ninja-slider.js" type="text/javascript"></script>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,7 +14,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body data-turbolinks="false">
     <%= yield %>
   </body>
 </html>

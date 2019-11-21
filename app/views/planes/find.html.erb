@@ -1,0 +1,43 @@
+<%= render 'partials/navbar' %>
+
+<div class="container">
+		<div class="row">
+			<div class=" col-lg-10" style="margin-top:4%">
+				<div class="h1">Cek Tiket</div>
+				<br>
+        <%= form_with scope: 'plane', url: '/planes/find' do |f| %>
+				<!--<form class="form-horizontal" action="tampil.php" method="post">-->
+					<fieldset>
+						<div class="form-group">
+							<label for="disabledselect">Bandara Asal</label>
+							<select id="disabledSelect" class="form-control" name="plane[bandara_asal]">
+								<option selected="selected">Pilih Bandara</option>
+                <option value="Soekarno-Hatta">Soekarno-Hatta</option>
+                <option value="Kertajati">Kertajati</option>
+                <option value="Denpasar">Denpasar</option>
+                <option value="Kualanamu">Kualanamu</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="disabledselect">Bandara Tujuan</label>
+							<select id="disabledSelect" class="form-control" name="plane[bandara_tujuan]">
+								<option selected="selected">Pilih Bandara</option>
+                <option value="Soekarno-Hatta">Soekarno-Hatta</option>
+                <option value="Kertajati">Kertajati</option>
+                <option value="Denpasar">Denpasar</option>
+                <option value="Kualanamu">Kualanamu</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="disabeledselect">Tanggal Pemberangkatan</label>
+							<input id="disabledSelect" class="form-control" type="date" name="plane[tgl_berangkat]">
+						</div>
+						<div class="form-group">					    	
+					      	<button type="submit" name="tampil" class="btn btn-default" data-turbolinks="true">Tampilkan</button>
+					  	</div>
+					</fieldset>
+        <% end %>
+				<!--</form>-->
+			</div>
+		</div>
+	</div>

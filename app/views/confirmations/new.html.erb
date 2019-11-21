@@ -1,0 +1,58 @@
+<%= render 'partials/navbar' %>
+
+ <div class="container">
+            <br><br>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            konfirmasi Pembayaran
+                        </div>
+                        <div class="panel-body">
+                            <%= form_with scope: 'confirmation', url: '/confirmations', class: 'form-horizontal' do |f| %>
+                            <!--<form class="form-horizontal" method="post" action="">-->
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Kode</label>
+                                    <div class="col-sm-10">
+                                        <input required type="text" name="confirmation[booking_id]" class="form-control" placeholder="Kode Pemesanan">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Pengirim</label>
+                                    <div class="col-sm-10">
+                                        <input required type="text" name="confirmation[pengirim]" class="form-control" placeholder="Pengirim">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Nama Bank</label>
+                                    <div class="col-sm-10">
+                                        <input required type="text" name="confirmation[nama_bank]" class="form-control" placeholder="Nama Bank">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Jumlah Bayar</label>
+                                    <div class="col-sm-10">
+                                        <input required type="text" name="confirmation[jumlah_bayar]" class="form-control" placeholder="Jumlah Bayar">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" name="kirim" class="btn btn-primary">Konfirmasi</button>
+                                    </div>
+                                </div>
+                            <!--</form>-->
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <%= flash[:notice].html_safe unless flash[:notice].nil? %>
+                </div>
+            </div>
+        </div>
+
+<!--<h1>New Confirmation</h1>
+
+<%= render 'form', confirmation: @confirmation %>
+
+<%= link_to 'Back', confirmations_path %>-->

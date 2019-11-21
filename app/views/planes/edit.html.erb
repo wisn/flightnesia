@@ -1,0 +1,98 @@
+<%= render 'partials/user_navbar' %>
+
+<div class="container">
+  <%= render 'partials/admin_navbar' %>
+</div>
+
+<div class="container">
+        <div class="row">
+            <div class="col-lg-12" style="margin-left:10%">
+                <br><br>
+                  <!--<form method="post" action="">-->
+                  <%= form_with model: @plane, local: true do |f| %>
+              <fieldset>
+                            
+                <div class="form-group">
+                  <label for="disabledSelect">Kode Pesawat</label>
+                  <input id="kode" class="form-control" type="text" name="plane[kode_pesawat]" placeholder="Kode Pesawat" value="<%= @plane[:kode_pesawat] %>" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="disabledSelect">Nama Pesawat</label>
+                    <select id="kereta" class="form-control" name="plane[nama_pesawat]" onchange="myFunction()">
+                      <option selected="selected">Pilih Pesawat</option>
+                      <option value="Garuda Indonesia" <%= 'selected' if @plane[:nama_pesawat] == 'Garuda Indonesia' %>>Garuda Indonesia</option>
+                      <option value="Citilink" <%= 'selected' if @plane[:nama_pesawat] == 'Citilink' %>>Citilink</option>
+                      <option value="Lion Air" <%= 'selected' if @plane[:nama_pesawat] == 'Lion Air' %>>Lion Air</option>
+                      <option value="Batik Air" <%= 'selected' if @plane[:nama_pesawat] == 'Batik Air' %>>Batik Air</option>
+                    </select>
+                </div>
+                 <div class="form-group">
+                    <label for="disabledSelect">Kelas</label>
+                    <select id="kelas" class="form-control" name="plane[kelas]" onchange="myFunction()">
+                      <option selected="selected">Pilih Kelas</option>
+                      <option value="Executive" <%= 'selected' if @plane[:kelas] == 'Executive' %>>Executive</option>
+                      <option value="Bisnis" <%= 'selected' if @plane[:kelas] == 'Bisnis' %>>Bisnis</option>
+                      <option value="Ekonomi" <%= 'selected' if @plane[:kelas] == 'Ekonomi' %>>Ekonomi</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                  <label for="disabledSelect">Jumlah Kursi</label>
+                  <input id="jumlah" class="form-control" type="text" name="plane[jml_kursi]" placeholder="Jumlah Kursi" value="<%= @plane[:jml_kursi] %>">
+                </div>
+                <div class="form-group">
+                  <label for="disabledSelect">Harga Tiket</label>
+                  <input id="harga" class="form-control" type="text" name="plane[harga]" placeholder="Harga Tiket" value="<%= @plane[:harga] %>">
+                </div>
+                <div class="form-group">
+                    <label for="disabledSelect">Bandara Pemberangkatan</label>
+                    <select id="disabledSelect" class="form-control" name="plane[bandara_asal]">
+                      <option selected="selected">Pilih Bandara</option>
+                      <option value="Soekarno-Hatta" <%= 'selected' if @plane[:bandara_asal] == 'Soekarno-Hatta' %>>Soekarno-Hatta</option>
+                      <option value="Kertajati" <%= 'selected' if @plane[:bandara_asal] == 'Kertajati' %>>Kertajati</option>
+                      <option value="Denpasar" <%= 'selected' if @plane[:bandara_asal] == 'Denpasar' %>>Denpasar</option>
+                      <option value="Kualanamu" <%= 'selected' if @plane[:bandara_asal] == 'Kualanamu' %>>Kualanamu</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="disabledSelect">Bandara Tujuan</label>
+                    <select id="disabledSelect" class="form-control" name="plane[bandara_tujuan]">
+                      <option selected="selected">Pilih Bandara</option>
+                      <option value="Soekarno-Hatta" <%= 'selected' if @plane[:bandara_tujuan] == 'Soekarno-Hatta' %>>Soekarno-Hatta</option>
+                      <option value="Kertajati" <%= 'selected' if @plane[:bandara_tujuan] == 'Kertajati' %>>Kertajati</option>
+                      <option value="Denpasar" <%= 'selected' if @plane[:bandara_tujuan] == 'Denpasar' %>>Denpasar</option>
+                      <option value="Kualanamu" <%= 'selected' if @plane[:bandara_tujuan] == 'Kualanamu' %>>Kualanamu</option>
+                    </select>
+                </div>
+
+                <label>Jam Keberangkatan</label>
+                <input class="form-control input "  type="text" name="plane[jam_keberangkatan]" placeholder="Jam Keberangkatan" value="<%= @plane[:jam_keberangkatan].strftime('%H') %>:<%= @plane[:jam_keberangkatan].strftime('%M') %>">
+                <br>
+                <label>Jam Kedatangan</label>
+                <input class="form-control input "  type="text" name="plane[jam_kedatangan]" placeholder="Jam Kedatangan" value="<%= @plane[:jam_kedatangan].strftime('%H') %>:<%= @plane[:jam_kedatangan].strftime('%M') %>">
+
+              <br>
+                            <br>
+                <button type="submit" name="simpan" value="Simpan" class="btn btn-primary">SIMPAN</button>
+                <br><br><br>
+              </fieldset>
+          <!--</form> -->
+          <% end %>
+            </div>
+        </div>
+    </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  
+      <div class="clr"></div>
+    </div>
+  </div>
+</div>
+
+<!--<h1>Editing Plane</h1>
+
+<%= render 'form', plane: @plane %>
+
+<%= link_to 'Show', @plane %> |
+<%= link_to 'Back', planes_path %>
+-->

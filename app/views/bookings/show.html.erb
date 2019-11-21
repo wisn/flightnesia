@@ -1,0 +1,102 @@
+<%= render 'partials/navbar' %>
+
+<br>
+<br>
+<div class="content">
+		<div class="container">
+      <div class="col-md-5 col-md-offset-4">
+			<table class="table table-bordered">
+          <tr>
+            <td>Booking Id</td>
+            <td><%= Base64.encode64 @booking.id.to_s %></td>
+          </tr>
+          <tr>
+            <td>Kode Pesawat</td>
+            <td><%= @booking.kode_pesawat %></td>
+          </tr>
+          <tr>
+            <td>Nama</td>
+            <td><%= @booking.nama %></td>
+          </tr>
+          <tr>
+            <td>No KTP</td>
+            <td><%= @booking.no_id %></td>
+          </tr>
+          <tr>
+            <td>Nama Pesawat</td>
+            <td><%= @booking.nama_pesawat %></td>
+          </tr>
+          <tr>
+            <td>Bandara Asal</td>
+            <td><%= @booking.bandara_asal %></td>
+          </tr>
+          <tr>
+            <td>Bandara Tujuan</td>
+            <td><%= @booking.bandara_tujuan %></td>
+          </tr>
+          <tr>
+            <td>Tanggal Berangkat</td>
+            <td><%= @booking.tgl_berangkat %></td>
+          </tr>
+          <tr>
+            <td>Pembayaran</td>
+            <td><%= @booking.konfirmasi ? 'Lunas' : 'Belum Lunas' %></td>
+          </tr>
+			</table>
+      <!-- <button><a href="cetak.php?Booking_id=<?php echo $kodeBooking;?>">Cetak Tiket</a></button> -->
+        <% if @booking.konfirmasi %>
+          <button onClick="window.print();">Print</button>
+        <% end %>
+		</div>
+  </div>
+	</div>
+
+<!--<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Kode pesawat:</strong>
+  <%= @booking.kode_pesawat %>
+</p>
+
+<p>
+  <strong>Nama:</strong>
+  <%= @booking.nama %>
+</p>
+
+<p>
+  <strong>No:</strong>
+  <%= @booking.no_id %>
+</p>
+
+<p>
+  <strong>No telp:</strong>
+  <%= @booking.no_telp %>
+</p>
+
+<p>
+  <strong>Nama pesawat:</strong>
+  <%= @booking.nama_pesawat %>
+</p>
+
+<p>
+  <strong>Bandara asal:</strong>
+  <%= @booking.bandara_asal %>
+</p>
+
+<p>
+  <strong>Bandara tujuan:</strong>
+  <%= @booking.bandara_tujuan %>
+</p>
+
+<p>
+  <strong>Tgl berangkat:</strong>
+  <%= @booking.tgl_berangkat %>
+</p>
+
+<p>
+  <strong>Konfirmasi:</strong>
+  <%= @booking.konfirmasi %>
+</p>
+
+<%= link_to 'Edit', edit_booking_path(@booking) %> |
+<%= link_to 'Back', bookings_path %>-->

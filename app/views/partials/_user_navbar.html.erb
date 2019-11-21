@@ -1,0 +1,14 @@
+<%
+  @name = session[:user_data]['firstname'] || ''
+  @name += ' ' unless session[:user_data]['lastname'].nil?
+  @name += session[:user_data]['lastname'] || ''
+%>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <h3>Welcome <%= @name || 'admin' %></h3>
+    </div>
+    <div class="pull-right"><a href='/logout'>logout</a></div>
+  </div>
+</nav>

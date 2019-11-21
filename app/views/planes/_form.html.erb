@@ -1,0 +1,62 @@
+<%= form_with(model: plane, local: true) do |form| %>
+  <% if plane.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(plane.errors.count, "error") %> prohibited this plane from being saved:</h2>
+
+      <ul>
+        <% plane.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :kode_pesawat %>
+    <%= form.text_field :kode_pesawat %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nama_pesawat %>
+    <%= form.text_field :nama_pesawat %>
+  </div>
+
+  <div class="field">
+    <%= form.label :kelas %>
+    <%= form.text_field :kelas %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bandara_asal %>
+    <%= form.text_field :bandara_asal %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bandara_tujuan %>
+    <%= form.text_field :bandara_tujuan %>
+  </div>
+
+  <div class="field">
+    <%= form.label :jam_keberangkatan %>
+    <%= form.time_select :jam_keberangkatan %>
+  </div>
+
+  <div class="field">
+    <%= form.label :jam_kedatangan %>
+    <%= form.time_select :jam_kedatangan %>
+  </div>
+
+  <div class="field">
+    <%= form.label :harga %>
+    <%= form.number_field :harga %>
+  </div>
+
+  <div class="field">
+    <%= form.label :jml_kursi %>
+    <%= form.number_field :jml_kursi %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

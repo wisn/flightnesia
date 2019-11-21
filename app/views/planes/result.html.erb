@@ -1,0 +1,39 @@
+<%= render 'partials/navbar' %>
+
+<br><br>
+<div class="container">
+<table class="table table-striped">
+	    	<thead>
+	    	<tr>
+	    			<th>Kode Pesawat</th>
+  					<th>Nama Pesawat</th>
+  					<th>kelas</th>
+  					<th>Tgl Keberangkatan</th>
+  					<th>Jam Keberangkatan</th>
+  					<th>Jam Kedatangan</th>
+  					<th>Harga</th>
+  					<th>Sisa Kursi</th>
+  					<th>Aksi</th>
+  			</tr>
+  			</thead>
+  			<tbody>
+  				<% @planes.each do |plane| %>
+  			<tr>
+  				<td><%= plane['kode_pesawat'] %></td>
+  				<td><%= plane['nama_pesawat'] %></td>
+  				<td><%= plane['kelas'] %></td>
+  				<td><%= @tgl_berangkat %></td>
+  				<td><%= plane['jam_keberangkatan'][11..15] %></td>
+  				<td><%= plane['jam_kedatangan'][11..15] %></td>
+  				<td><%= plane['harga'] %></td>
+  				<td><%= plane['jml_kursi'] %></td>
+  				<td></td>
+  				<td>
+  					<button><%= link_to 'Booking', "/bookings/new/#{plane['kode_pesawat']}" %></button>
+  				</td>
+  				<% end %>
+  				
+  			</tr>
+  			</tbody>
+		</table>
+</div>
